@@ -20,6 +20,21 @@ Install the app. It will install all your dependencies.
 npm install
 ```
 
+- Now make your project on firebase and get the your API-keys from there.
+- Make a `.env` file in the project root dir (`imageHosting\.env`).
+- And specify the firebase api-keys there
+
+```
+# Firebase configration
+FIREBASE_API_KEY = ******************
+FIREBASE_AUTH_DOMAIN = ******************
+FIREBASE_PROJECT_ID = ******************
+FIREBASE_STORAGE_BUCKET = ******************
+FIREBASE_MESSAGING_SENDER_ID = ******************
+FIREBASE_APP_ID = ******************
+FIREBASE_MEASUREMENT_ID = ******************
+```
+
 Start the app and specify the markdown file in the arguments
 
 ```
