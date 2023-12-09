@@ -7,7 +7,6 @@ const upload = async (image_path) => {
   try {
     // READING FILE
     var newLink = "";
-    // console.log(image_path, "dd===");
     var imageBuffer = fs.readFileSync(image_path);
 
     // CREATING UNIQUE IMAGE REF
@@ -17,19 +16,20 @@ const upload = async (image_path) => {
     const type = path.extname(image_path);
     const name = path.basename(full_name, type);
     const fileName = `${dir_name}_${name}_${timestamp}.${type}`;
-    const imageRef = ref(storage, fileName);
-
+    
+    // Create a reference to the folder and the specific image
+    const imageRef = ref(storage, `${dir_name}/${fileName}`);
+    
     // UPLOADING
-    await uploadBytes(imageRef, imageBuffer).then((snapshot) => {
-      // console.log(`Uploaded image: ${fileName}`);
-    });
+    console.log("Upload 🔃: ", image_path);
+    const snapshot = await uploadBytes(imageRef, imageBuffer);
+    // console.log(`Uploaded image: ${fileName}`);
 
     // GET UPLOADED LINK
-    await getDownloadURL(imageRef, fileName).then((url) => {
-      newLink = url;
-    });
-  } catch (err) {
-    console.log(err);
+    newLink = await getDownloadURL(imageRef);
+    // console.log(`Download URL: ${newLink}`);
+  } catch (error) {
+    console.error(`Error uploading image:`, error);
   }
   return newLink;
 };

@@ -51,7 +51,6 @@ while ((image_markdown = regex.exec(file_data)) !== null) {
    * Upload and get link
    */
   let image_path = decodeURI(image_markdown[2]);
-  console.log("Uploading 🔃: ", image_path);
 
   /**
    * Resolving image path.
