@@ -52,8 +52,8 @@ The parser will parse the markdown files and search for all the images links lik
 
 Please note that all the local image links should be correct. It's recommended that both the markdown file and the images should be under the same **dir\*\***
 
-![output](./snaps/snap-output.jpg)
-![output](./snaps/working.gif)
+![output](./images/snap-output.jpg)
+![output](./images/working.gif)
 
 Now all the images link will be updated with the new one (hosted one).
 
