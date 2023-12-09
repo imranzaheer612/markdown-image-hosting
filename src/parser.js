@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import upload from "./uploader.js";
+import { convertAndSaveToHugoFile } from './utils.js';
 
 // REGEX FOR EXTRACT IMAGES PATH FROM MARKDOWN
 const regex = /!\[(.*?)\]\((.*?)\)/g;
@@ -84,3 +85,6 @@ while ((image_markdown = regex.exec(file_data)) !== null) {
    */
   fs.writeFileSync(file_path, updated_file_data, "utf-8");
 }
+
+
+convertAndSaveToHugoFile(updated_file_data, file_path);
